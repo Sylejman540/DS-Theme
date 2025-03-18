@@ -1,10 +1,260 @@
-/* 
-Theme Name: DS Theme
-Them URL:http://digitalschool.tech/
+/*
+Theme Name: DS Theme Final Modified
+Theme URI: 
+https://shkolladigjitale.com/blog/si-funksionon-shkolla-digjitale-online/?fbclid=IwAR0ILVGWjYiU_mUozPgvSbCxtAjgCWnRdC61lKkvmCObkzPBEk8iUpIn1vo
+
 Author: Sylejman Durguti
-Author URL: https://sylejman.dev/
-Description: DS is a theme for learning purposes.
-Version: 1.0
-Text Domain: dstheme
-Tags: cool, blue, mobile ready
+Author URI: 
+https://shkolladigjitale.com/blog/si-funksionon-shkolla-digjitale-online/?fbclid=IwAR0ILVGWjYiU_mUozPgvSbCxtAjgCWnRdC61lKkvmCObkzPBEk8iUpIn1vo
+
+Description: This Theme Is For Learning Purposes – Modified Style
+Requires at least: 6.7
+Tested up to: 6.7
+Requires PHP: 7.2
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Text Domain: DS Theme Final Modified
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images
 */
+
+/* 1. Normalize (kept unchanged for consistency) */
+main {
+    display: block;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* ... (other normalization rules remain the same) ... */
+
+/* 2. Theme Specific CSS - Modified Style */
+
+/* General Styles */
+:root {
+    /* Measurements */
+    --wpdevs-big-padding: 80px 0;
+    --wpdevs-mobile-padding: 30px 0;
+    --wpdevs-light-padding: 0 20px;
+    /* Updated Color Palette */
+    --wpdevs-gray1: #B0B0B0;
+    --wpdevs-gray2: #F5F5F5;
+    --wpdevs-gray3: #E0E0E0;
+    --wpdevs-primary: #4A90E2;
+    --wpdevs-secondary: #50E3C2;
+    --wpdevs-dark: #333333;
+    --wpdevs-accent: #D0021B;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--wpdevs-dark);
+    background-color: var(--wpdevs-gray2);
+}
+
+
+/* Links */
+
+/* Containers */
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 15px;
+}
+
+/************** MAIN MENU *****************/
+.menu-area {
+    background: var(--wpdevs-gray3);
+}
+
+.main-menu {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu ul li {
+    display: inline-block;
+    line-height: 55px;
+    position: relative;
+}
+
+.main-menu ul li.current_page_item > a {
+    font-weight: bold;
+}
+
+.main-menu ul li a {
+    color: var(--wpdevs-dark);
+    padding: 0 30px;
+    display: block;
+}
+
+.main-menu ul li a:hover,
+.main-menu ul li a:active {
+    color: var(--wpdevs-primary);
+}
+
+.main-menu li.menu-item-has-children::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--wpdevs-dark);
+}
+
+.main-menu ul.sub-menu {
+    position: absolute;
+    background-color: var(--wpdevs-dark);
+    display: none;
+    padding: 10px 0;
+    margin: 0;
+    text-align: left;
+    z-index: 100;
+}
+
+.main-menu ul li:hover > ul,
+.main-menu ul li:focus-within > ul {
+    display: block;
+}
+
+.main-menu ul.sub-menu li {
+    display: block;
+    margin: 0;
+}
+
+.main-menu ul.sub-menu a {
+    color: #FFFFFF;
+    padding: 10px 20px;
+}
+
+@media (max-width: 767px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+    .main-menu ul {
+        position: absolute;
+        top: 55px;
+        left: -100%;
+        width: 100%;
+        background: var(--wpdevs-dark);
+        flex-direction: column;
+        transition: left 0.5s ease;
+    }
+    .main-menu ul.show-dropdown {
+        left: 0;
+    }
+    .main-menu ul li {
+        display: block;
+        text-align: left;
+        margin: 15px 0;
+        line-height: normal;
+    }
+    .main-menu ul li a {
+        color: #FFFFFF;
+        padding: 10px 20px;
+    }
+    .main-menu ul.sub-menu {
+        position: relative;
+        top: 0;
+        background: transparent;
+        padding: 0;
+    }
+}
+
+
+/************** SERVICES SECTION *****************/
+.services {
+    background-color: var(--wpdevs-primary);
+    padding: var(--wpdevs-big-padding);
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.services .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services .services-item {
+    flex: 1 1 250px;
+    padding: var(--wpdevs-light-padding);
+    margin: 10px;
+}
+
+.services .services-item figure {
+    background: var(--wpdevs-dark);
+    padding: 15px;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.services h2::after {
+    content: '';
+    position: absolute;
+    background-color: var(--wpdevs-secondary);
+    width: 50px;
+    height: 4px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/************** FOOTER *****************/
+footer {
+    background: var(--wpdevs-dark);
+    padding: 15px 0;
+    color: #FFFFFF;
+}
+
+.site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer-menu ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.footer-menu ul li.current_page_item a {
+    font-weight: bold;
+}
