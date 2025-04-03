@@ -12,22 +12,36 @@
                 <div class="container">
                     <div class="blog-items">
                         <?php 
-                        if ( have_posts()) : the_post();
+                        if ( have_posts() ) : 
                             while ( have_posts() ) : 
                                 the_post();
                         ?>
                             <article>
-                                <h2><?php the_title(); ?></h2>
+                                <h2>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h2>
+
+                                <?php 
+                                if ( has_post_thumbnail() ) : 
+                                    the_post_thumbnail('large'); 
+                                else: 
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/sky.jpg" alt="<?php the_title(); ?>">
+                                <?php endif; ?>
+
                                 <div class="meta-info">
-                                    <p>Posted in by <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?></p>
-                                    <p>Categories: <?php the_category();?></p>
-                                    <p>Tags: <?php the_tags(); ?></p>
+                                    <p>Posted on <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?></p>
+                                    <p>Categories: <?php the_category(', '); ?></p>
+                                    <p>Tags: <?php the_tags('', ', '); ?></p>
                                 </div>
                                 <?php the_content(); ?>
                             </article>
                         <?php 
                             endwhile;
-                        endif;?>
+                        endif;
+                        ?>
                     </div>
                 </div>
             </section>
